@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YinDesign 音嘚赞 - InDesign 拼音注音插件 | Mac版智能拼音排版工具</title>
+    <meta name="description" content="YinDesign 音嘚赞是专为 Mac 版 Adobe InDesign 设计的中文拼音注音插件。内置21000+汉字词典，智能识别多音字，一键添加拼音注音，支持繁简转换、批量处理、精细化排版。适用于教材出版、古籍整理、儿童读物等领域。">
+    <meta name="keywords" content="InDesign拼音插件,InDesign注音,拼音注音工具,Adobe InDesign插件,Mac排版插件,中文拼音标注,多音字识别,繁简转换,InDesign脚本,排版工具,YinDesign,音嘚赞,自动拼音,拼音排版,教材排版,古籍数字化">
+    <meta name="author" content="YinDesign">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yindesign.vip/">
+
+    <!-- Open Graph / 社交分享 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="YinDesign 音嘚赞 - InDesign 智能拼音注音插件">
+    <meta property="og:description" content="专为 Mac 版 InDesign 设计的中文拼音注音插件。智能识别多音字，一键添加拼音，支持繁简转换与批量处理。">
+    <meta property="og:url" content="https://yindesign.vip/">
+    <meta property="og:site_name" content="YinDesign 音嘚赞">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- 移动端优化 -->
+    <meta name="theme-color" content="#C03F3C">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="YinDesign 音嘚赞">
+
+    <!-- 结构化数据 JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "YinDesign 音嘚赞",
+        "operatingSystem": "macOS",
+        "applicationCategory": "DesignApplication",
+        "description": "专为 Mac 版 Adobe InDesign 设计的中文拼音注音插件，内置21000+汉字词典，智能识别多音字，一键添加拼音注音。",
+        "url": "https://yindesign.vip/",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "启明版",
+                "price": "49",
+                "priceCurrency": "CNY",
+                "billingPeriod": "P1M",
+                "description": "按月订阅"
+            },
+            {
+                "@type": "Offer",
+                "name": "长庚版",
+                "price": "199",
+                "priceCurrency": "CNY",
+                "billingPeriod": "P1Y",
+                "description": "按年订阅，推荐方案"
+            },
+            {
+                "@type": "Offer",
+                "name": "太白版",
+                "price": "399",
+                "priceCurrency": "CNY",
+                "billingPeriod": "P3Y",
+                "description": "三年订阅"
+            }
+        ],
+        "featureList": "智能拼音注音,多音字识别,繁简中文转换,精细化排版,字转注音,批量处理,字符样式联动,实时预览",
+        "softwareVersion": "副墨v26.0",
+        "creator": {
+            "@type": "Organization",
+            "name": "YinDesign",
+            "url": "https://yindesign.vip"
+        }
+    }
+    </script>
+
+    <!-- 面包屑结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "首页",
+                "item": "https://yindesign.vip/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "功能特性",
+                "item": "https://yindesign.vip/#features"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "订阅方案",
+                "item": "https://yindesign.vip/#pricing"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "使用教程",
+                "item": "https://yindesign.vip/#tutorial"
+            }
+        ]
+    }
+    </script>
+
+    <!-- FAQ 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "YinDesign 音嘚赞支持哪些 InDesign 版本？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "YinDesign 音嘚赞支持 macOS 平台上的 Adobe InDesign CC 及以上版本。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "YinDesign 音嘚赞如何处理多音字？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "插件内置智能多音字识别系统，根据上下文语境自动选择正确读音，并支持人工校对确认。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "YinDesign 音嘚赞支持繁简转换吗？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "支持。内置1100+繁简字对照表，经 OpenCC 国家标准校对，可一键完成简繁互转。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "YinDesign 音嘚赞有哪些订阅方案？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "提供三种订阅方案：启明版（¥49/月）、长庚版（¥199/年）、太白版（¥399/3年），所有方案功能完全一致。"
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="logo-yindesign.png" alt="YinDesign" class="brand-logo">
+                <span class="brand-text"><span class="brand-yd">YinDesign</span> <span class="brand-name">音嘚赞</span></span>
+            </div>
+            <button class="nav-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#features">功能特性</a></li>
+                <li><a href="#pricing">订阅方案</a></li>
+                <li><a href="#tutorial">使用教程</a></li>
+                <li><a href="#download">立即下载</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <header class="hero">
+        <!-- 底层背景轮播 -->
+        <div class="hero-bg-carousel" id="heroBgCarousel">
+            <div class="hero-bg-slide active" style="background-image: url('hero-screenshot.png')"></div>
+            <div class="hero-bg-slide" style="background-image: url('hero-screenshot-2.png')"></div>
+            <div class="hero-bg-slide" style="background-image: url('hero-screenshot-3.png')"></div>
+            <div class="hero-bg-slide" style="background-image: url('hero-screenshot-4.png')"></div>
+        </div>
+        <!-- 毛玻璃叠加层 -->
+        <div class="hero-glass"></div>
+        <!-- 前景内容 -->
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge hero-badge-inverted">
+                    <span>专为 Mac 版 InDesign 打造</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-main"><span class="title-yd">YinDesign</span> <span class="title-name">音嘚赞</span></span>
+                    <span class="title-sub">智能拼音注音 · 让排版更高效</span>
+                </h1>
+                <p class="hero-desc">
+                    一键为中文文本添加拼音注音，智能识别多音字，支持繁简转换。<br>
+                    专为出版、教育、古籍整理等领域的排版工作者设计。
+                </p>
+                <div class="hero-logos">
+                    <div class="logo-item">
+                        <div class="logo-icon mac-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.39 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                        </div>
+                        <span class="logo-label">macOS</span>
+                    </div>
+                    <div class="logo-plus">+</div>
+                    <div class="logo-item">
+                        <img src="logo-indesign.png" alt="Adobe InDesign" class="logo-img">
+                        <span class="logo-label">Adobe InDesign</span>
+                    </div>
+                    <div class="logo-plus">+</div>
+                    <div class="logo-item">
+                        <img src="logo-yindesign.png" alt="YinDesign 音嘚赞" class="logo-img">
+                        <span class="logo-label">YinDesign 音嘚赞</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#pricing" class="btn btn-primary">马上订阅</a>
+                    <a href="#features" class="btn btn-secondary">了解更多</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="carousel" id="heroCarousel">
+                    <div class="carousel-track">
+                        <div class="carousel-slide active">
+                            <img src="hero-screenshot-1.png" alt="YinDesign 音嘚赞 - 竖排古籍拼音注音" loading="eager">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="hero-screenshot-2.png" alt="YinDesign 音嘚赞 - 自由定义拼音样式" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="hero-screenshot-3.png" alt="YinDesign 音嘚赞 - 齐全的快速注音功能" loading="lazy">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="hero-screenshot-4.png" alt="YinDesign 音嘚赞 - 灵活绑定-校稿修改更方便" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="carousel-dot active" data-index="0"></span>
+                        <span class="carousel-dot" data-index="1"></span>
+                        <span class="carousel-dot" data-index="2"></span>
+                        <span class="carousel-dot" data-index="3"></span>
+                    </div>
+                    <button class="carousel-arrow carousel-prev" aria-label="上一张">‹</button>
+                    <button class="carousel-arrow carousel-next" aria-label="下一张">›</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 核心功能 -->
+    <section id="features" class="features" aria-label="核心功能">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">核心功能</h2>
+                <p class="section-desc">智能、高效、精准的中文拼音注音解决方案</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🎯</div>
+                    <h3 class="feature-title">智能拼音注音</h3>
+                    <p class="feature-desc">内置 21,000+ 汉字拼音词典，一键添加拼音注音。智能识别多音字，根据上下文自动选择正确读音。</p>
+                    <div class="feature-image" onclick="openFeatureLightbox(0)">
+                        <img src="demo_1_polyphone_effect.png" alt="YinDesign 智能多音字识别效果" loading="lazy">
+                        <div class="feature-image-zoom">🔍 点击放大</div>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🔄</div>
+                    <h3 class="feature-title">繁简中文转换</h3>
+                    <p class="feature-desc">内置 1,100+ 繁简字对照表，经 OpenCC 国家标准校对。一键完成简繁互转，准确可靠。</p>
+                    <div class="feature-image" onclick="openFeatureLightbox(1)">
+                        <img src="demo_2_operations.png" alt="YinDesign 操作面板" loading="lazy">
+                        <div class="feature-image-zoom">🔍 点击放大</div>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🎨</div>
+                    <h3 class="feature-title">精细化排版</h3>
+                    <p class="feature-desc">独立控制拼音字体、字号、偏移、缩放、颜色等参数。内置 48 种预设颜色，含 24 种中国传统色。</p>
+                    <div class="feature-image" onclick="openFeatureLightbox(2)">
+                        <img src="demo_3_format_settings.png" alt="YinDesign 格式设置面板" loading="lazy">
+                        <div class="feature-image-zoom">🔍 点击放大</div>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">📝</div>
+                    <h3 class="feature-title">字转注音</h3>
+                    <p class="feature-desc">将汉字文本批量转换为纯拼音文本，支持多种分隔方式。可选保留声调或移除，附带汉字或纯拼音。</p>
+                    <div class="feature-image" onclick="openFeatureLightbox(3)">
+                        <img src="demo_4_operations_alt.png" alt="YinDesign 功能操作面板" loading="lazy">
+                        <div class="feature-image-zoom">🔍 点击放大</div>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">⚡</div>
+                    <h3 class="feature-title">批量处理</h3>
+                    <p class="feature-desc">支持选区、文本串接、页面范围三种批量模式。可按段落样式或字符样式过滤，大幅提升效率。</p>
+                    <div class="feature-image" onclick="openFeatureLightbox(4)">
+                        <img src="demo_5_annotation_scope.png" alt="YinDesign 注音范围与格式设置" loading="lazy">
+                        <div class="feature-image-zoom">🔍 点击放大</div>
+                    </div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🔧</div>
+                    <h3 class="feature-title">样式联动</h3>
+                    <p class="feature-desc">支持将拼音参数保存到 InDesign 字符样式，实现样式驱动的排版工作流。可保存多套预设方案快速切换。</p>
+                    <div class="feature-image" onclick="openFeatureLightbox(5)">
+                        <img src="demo_6_main_panel.png" alt="YinDesign 字符样式与拼音设置" loading="lazy">
+                        <div class="feature-image-zoom">🔍 点击放大</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 适用场景 -->
+    <section class="scenarios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">适用场景</h2>
+                <p class="section-desc">为各类中文排版需求提供专业解决方案</p>
+            </div>
+            <div class="scenarios-grid">
+                <div class="scenario-item">
+                    <span class="scenario-icon">📚</span>
+                    <span class="scenario-text">教材教辅出版</span>
+                </div>
+                <div class="scenario-item">
+                    <span class="scenario-icon">📖</span>
+                    <span class="scenario-text">古籍整理出版</span>
+                </div>
+                <div class="scenario-item">
+                    <span class="scenario-icon">🎨</span>
+                    <span class="scenario-text">儿童读物排版</span>
+                </div>
+                <div class="scenario-item">
+                    <span class="scenario-icon">📝</span>
+                    <span class="scenario-text">辞书编纂</span>
+                </div>
+                <div class="scenario-item">
+                    <span class="scenario-icon">🏫</span>
+                    <span class="scenario-text">语文教学</span>
+                </div>
+                <div class="scenario-item">
+                    <span class="scenario-icon">✨</span>
+                    <span class="scenario-text">品牌设计</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订阅方案 -->
+    <section id="pricing" class="pricing" aria-label="订阅方案">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">订阅方案</h2>
+                <p class="section-desc">灵活的订阅方式，满足不同使用需求</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">启明版</h3>
+                        <p class="pricing-desc">按月订阅</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount">¥49</span>
+                        <span class="price-period">/月</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ 完整拼音注音功能</li>
+                        <li>✓ 繁简中文转换</li>
+                        <li>✓ 字转注音功能</li>
+                        <li>✓ 批量处理支持</li>
+                        <li>✓ 48种预设颜色</li>
+                        <li>✓ 预设方案管理</li>
+                        <li>✓ 字符样式联动</li>
+                        <li>✓ 实时预览功能</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">立即订阅</a>
+                    <p class="pricing-note">连续订阅5个月自动升级年订阅</p>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">推荐</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">长庚版</h3>
+                        <p class="pricing-desc">按年订阅</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount">¥199</span>
+                        <span class="price-period">/年</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ 完整拼音注音功能</li>
+                        <li>✓ 繁简中文转换</li>
+                        <li>✓ 字转注音功能</li>
+                        <li>✓ 批量处理支持</li>
+                        <li>✓ 48种预设颜色</li>
+                        <li>✓ 预设方案管理</li>
+                        <li>✓ 字符样式联动</li>
+                        <li>✓ 实时预览功能</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">立即订阅</a>
+                    <p class="pricing-note">连续订阅5个月自动升级年订阅</p>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">太白版</h3>
+                        <p class="pricing-desc">三年订阅</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-amount">¥399</span>
+                        <span class="price-period">/3年</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ 完整拼音注音功能</li>
+                        <li>✓ 繁简中文转换</li>
+                        <li>✓ 字转注音功能</li>
+                        <li>✓ 批量处理支持</li>
+                        <li>✓ 48种预设颜色</li>
+                        <li>✓ 预设方案管理</li>
+                        <li>✓ 字符样式联动</li>
+                        <li>✓ 实时预览功能</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">立即订阅</a>
+                </div>
+            </div>
+            <p class="pricing-footer-note">随时随地解绑更换使用电脑</p>
+        </div>
+    </section>
+
+    <!-- 使用教程 -->
+    <section id="tutorial" class="tutorial" aria-label="使用教程">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">使用教程</h2>
+                <p class="section-desc">快速上手，掌握插件核心功能</p>
+            </div>
+            <div class="tutorial-grid">
+                <div class="tutorial-card">
+                    <div class="tutorial-number">01</div>
+                    <div class="tutorial-image-placeholder">
+                        <span>安装教程图片</span>
+                    </div>
+                    <h3 class="tutorial-title">安装与激活</h3>
+                    <p class="tutorial-desc">了解如何安装插件并完成订阅激活，开始使用 YinDesign 音嘚赞。</p>
+                    <a href="#" class="tutorial-link">查看教程 →</a>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-number">02</div>
+                    <div class="tutorial-image-placeholder">
+                        <span>注音教程图片</span>
+                    </div>
+                    <h3 class="tutorial-title">快速添加拼音</h3>
+                    <p class="tutorial-desc">学习如何一键为选中文本添加拼音注音，掌握多音字校对功能。</p>
+                    <a href="#" class="tutorial-link">查看教程 →</a>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-number">03</div>
+                    <div class="tutorial-image-placeholder">
+                        <span>排版教程图片</span>
+                    </div>
+                    <h3 class="tutorial-title">拼音排版技巧</h3>
+                    <p class="tutorial-desc">深入了解拼音字体、颜色、位置等精细化排版参数的设置方法。</p>
+                    <a href="#" class="tutorial-link">查看教程 →</a>
+                </div>
+                <div class="tutorial-card">
+                    <div class="tutorial-number">04</div>
+                    <div class="tutorial-image-placeholder">
+                        <span>批量教程图片</span>
+                    </div>
+                    <h3 class="tutorial-title">批量处理与样式</h3>
+                    <p class="tutorial-desc">掌握批量注音、字符样式联动、预设管理等高级功能的使用技巧。</p>
+                    <a href="#" class="tutorial-link">查看教程 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2 class="download-title">立即开始使用</h2>
+                <p class="download-desc">下载 YinDesign 音嘚赞，体验智能拼音注音的高效与便捷</p>
+                <div class="download-info">
+                    <div class="info-item">
+                        <span class="info-label">当前版本</span>
+                        <span class="info-value">副墨 v26.0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">支持平台</span>
+                        <span class="info-value">macOS + InDesign</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">文件大小</span>
+                        <span class="info-value">约 2 MB</span>
+                    </div>
+                </div>
+                <div class="download-actions">
+                    <a href="YinDesign音嘚赞_Installer.dmg" class="btn btn-primary btn-large">下载插件</a>
+                    <a href="#" class="btn btn-secondary btn-large">查看更新日志</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo-yindesign.png" alt="YinDesign" class="brand-logo">
+                    <span class="brand-text"><span class="brand-yd">YinDesign</span> <span class="brand-name">音嘚赞</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">功能介绍</a>
+                    <a href="#pricing">订阅方案</a>
+                    <a href="#tutorial">使用教程</a>
+                    <a href="#">常见问题</a>
+                </div>
+                <div class="footer-contact">
+                    <p>客服微信：YinDesign-Help</p>
+                    <p>官网：www.yindesign.vip</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024-2026 YinDesign. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 灯箱容器 -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图片预览" hidden>
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="关闭">&times;</button>
+            <button class="lightbox-arrow lightbox-prev" aria-label="上一张">‹</button>
+            <img class="lightbox-img" src="" alt="">
+            <button class="lightbox-arrow lightbox-next" aria-label="下一张">›</button>
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- 功能图片 Lightbox -->
+    <div class="feature-lightbox" id="featureLightbox" onclick="closeFeatureLightbox(event)">
+        <div class="feature-lightbox-close" onclick="closeFeatureLightbox(event)">✕</div>
+        <div class="feature-lightbox-nav feature-lightbox-prev" onclick="navFeatureLightbox(event, -1)">‹</div>
+        <div class="feature-lightbox-nav feature-lightbox-next" onclick="navFeatureLightbox(event, 1)">›</div>
+        <img id="featureLightboxImg" src="" alt="功能演示大图">
+        <div class="feature-lightbox-counter" id="featureLightboxCounter"></div>
+    </div>
+
+    <script>
+    (function() {
+        var cacheBuster = '?v=' + Date.now();
+        // 点击任意功能图片都显示完整界面大图
+        var fullInterfaceImage = 'demo_full_interface.png' + cacheBuster;
+        var lightbox = document.getElementById('featureLightbox');
+        var lightboxImg = document.getElementById('featureLightboxImg');
+        var lightboxCounter = document.getElementById('featureLightboxCounter');
+
+        window.openFeatureLightbox = function(index) {
+            lightboxImg.src = fullInterfaceImage;
+            lightboxCounter.textContent = '1 / 1';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeFeatureLightbox = function(e) {
+            if (e.target === lightbox || e.target.classList.contains('feature-lightbox-close')) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        };
+
+        // 隐藏左右导航箭头（只有一张图）
+        document.querySelector('.feature-lightbox-prev').style.display = 'none';
+        document.querySelector('.feature-lightbox-next').style.display = 'none';
+
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    })();
+    </script>
+</body>
+</html>
