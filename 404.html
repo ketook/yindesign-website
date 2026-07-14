@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到 - YinDesign 音嘚赞</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .error-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; background: var(--bg-light); }
+        .error-content { max-width: 480px; }
+        .error-code { font-size: 6rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 1rem; opacity: 0.15; }
+        .error-title { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .error-desc { color: var(--text-muted); margin-bottom: 2rem; }
+        .error-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .error-actions .btn { text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">页面未找到</h1>
+            <p class="error-desc">抱歉，您访问的页面不存在或已被移除。</p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">返回首页</a>
+                <a href="tutorial.html" class="btn btn-secondary">使用教程</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

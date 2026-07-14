@@ -862,6 +862,12 @@ section {
     align-items: start;
 }
 
+.pricing-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .pricing-card {
     background: white;
     border-radius: var(--radius-xl);
@@ -870,6 +876,9 @@ section {
     text-align: center;
     position: relative;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .pricing-card:hover {
@@ -932,6 +941,7 @@ section {
     list-style: none;
     text-align: left;
     margin-bottom: var(--spacing-lg);
+    flex: 1;
 }
 
 .pricing-features li {
@@ -945,11 +955,13 @@ section {
     border-bottom: none;
 }
 
-.pricing-note {
+.pricing-card-note {
     margin-top: var(--spacing-sm);
     font-size: 12px;
     color: var(--accent);
+    text-align: center;
 }
+
 .pricing-footer-note {
     text-align: center;
     margin-top: var(--spacing-lg);

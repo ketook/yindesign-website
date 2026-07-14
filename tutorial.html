@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用教程 - YinDesign 音嘚赞 | InDesign 拼音注音插件</title>
+    <meta name="description" content="YinDesign 音嘚赞完整使用教程：安装激活、添加拼音、排版技巧、批量处理、简繁转换等详细指南。">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yindesign.vip/tutorial.html">
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .tutorial-page { padding-top: 80px; background: var(--bg-light); }
+        .tutorial-container { max-width: 900px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+        .tutorial-header { text-align: center; margin-bottom: 3rem; }
+        .tutorial-header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .tutorial-header p { color: var(--text-muted); }
+
+        .toc { background: white; border-radius: var(--radius-lg); padding: 1.5rem 2rem; margin-bottom: 3rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+        .toc h3 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .toc ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1.5rem; }
+        .toc li a { color: var(--text-secondary); font-size: 0.95rem; text-decoration: none; transition: color 0.2s; }
+        .toc li a:hover { color: var(--primary); }
+        .toc li a::before { content: "#"; color: var(--primary); margin-right: 0.3rem; font-weight: 600; }
+
+        .doc-section { background: white; border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); }
+        .doc-section h2 { font-size: 1.6rem; margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--primary); color: var(--text-primary); }
+        .doc-section h3 { font-size: 1.2rem; margin: 1.5rem 0 0.8rem; color: var(--text-primary); }
+        .doc-section h4 { font-size: 1rem; margin: 1.2rem 0 0.5rem; color: var(--primary); font-weight: 600; }
+        .doc-section p { margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.8; }
+        .doc-section ul, .doc-section ol { margin-left: 1.5rem; margin-bottom: 1rem; color: var(--text-secondary); }
+        .doc-section li { margin-bottom: 0.4rem; line-height: 1.7; }
+        .doc-section code { background: #f5f5f5; padding: 2px 8px; border-radius: 4px; font-family: "SF Mono", Monaco, Consolas, monospace; font-size: 0.9rem; color: var(--primary); }
+        .doc-section pre { background: #1e1e1e; color: #d4d4d4; padding: 1.2rem; border-radius: 8px; overflow-x: auto; margin-bottom: 1rem; font-size: 0.9rem; }
+        .doc-section pre code { background: none; color: inherit; padding: 0; }
+        .doc-section table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+        .doc-section th, .doc-section td { padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .doc-section th { background: var(--bg-light); font-weight: 600; color: var(--text-primary); }
+        .doc-section .tip { background: #fff8e6; border-left: 4px solid #f5a623; padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1.2rem 0; font-size: 0.95rem; }
+        .doc-section .tip strong { color: #d48806; }
+        .doc-section .warning { background: #fdf0f0; border-left: 4px solid var(--primary); padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1.2rem 0; font-size: 0.95rem; }
+        .doc-section .warning strong { color: var(--primary); }
+        .doc-section .figure { margin: 1.5rem 0; text-align: center; }
+        .doc-section .figure img { max-width: 100%; max-height: 500px; object-fit: contain; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+        .doc-section .figure figcaption { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-style: italic; }
+
+        .step-list { counter-reset: step; list-style: none; padding: 0; margin: 1rem 0; }
+        .step-list li { counter-increment: step; padding: 0.6rem 0 0.6rem 3rem; position: relative; border-left: 2px solid var(--border); margin-left: 1rem; }
+        .step-list li::before { content: counter(step); position: absolute; left: -1rem; top: 0.5rem; width: 1.8rem; height: 1.8rem; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; }
+        .step-list li:last-child { border-left-color: transparent; }
+
+        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.2rem; box-shadow: var(--shadow-md); opacity: 0; transition: opacity 0.3s; z-index: 100; }
+        .back-to-top.visible { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .toc ul { grid-template-columns: 1fr; }
+            .doc-section { padding: 1.5rem; }
+            .tutorial-container { padding: 2rem 1rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
+                    <img src="images/logo-yindesign.png" alt="YinDesign" class="brand-logo">
+                    <span class="brand-text"><span class="brand-yd">YinDesign</span> <span class="brand-name">音嘚赞</span></span>
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="菜单"><span></span><span></span><span></span></button>
+            <ul class="nav-menu">
+                <li><a href="index.html#features">功能特性</a></li>
+                <li><a href="index.html#pricing">订阅方案</a></li>
+                <li><a href="tutorial.html">使用教程</a></li>
+                <li><a href="index.html#download">立即下载</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="tutorial-page" id="top">
+        <div class="tutorial-container">
+            <div class="tutorial-header">
+                <h1>使用教程</h1>
+                <p>快速上手 YinDesign 音嘚赞，掌握 InDesign 智能拼音注音的完整流程</p>
+            </div>
+
+            <nav class="toc" aria-label="目录">
+                <h3>目录</h3>
+                <ul>
+                    <li><a href="#overview">功能概览</a></li>
+                    <li><a href="#interface">主界面介绍</a></li>
+                    <li><a href="#activation">安装与激活</a></li>
+                    <li><a href="#add-pinyin">添加拼音</a></li>
+                    <li><a href="#manual">手动注音</a></li>
+                    <li><a href="#polyphone">多音字检查</a></li>
+                    <li><a href="#convert">字转注音</a></li>
+                    <li><a href="#bracket">括号包裹</a></li>
+                    <li><a href="#style">字符样式管理</a></li>
+                    <li><a href="#preset">预设方案管理</a></li>
+                    <li><a href="#st">简繁转换</a></li>
+                    <li><a href="#about">关于与更新</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+
+            <section class="doc-section" id="overview">
+                <h2>功能概览</h2>
+                <p>YinDesign 音嘚赞是一款专为 Adobe InDesign 设计的中文拼音注音插件。它利用 InDesign 原生的 Ruby（注音）功能，为中文文本批量添加拼音标注，支持横排和竖排文本，适用于教材、古籍、儿童读物等出版物的排版工作。</p>
+                <ul>
+                    <li><strong>批量添加拼音：</strong>一键为选区、文本串接或页面范围内的文字添加拼音注音，内置超过 21000 个汉字的拼音库</li>
+                    <li><strong>多音字智能处理：</strong>自动检测多音字并提供候选读音，支持手动选择正确的拼音</li>
+                    <li><strong>括号包裹：</strong>为拼音添加自定义括号符号，支持半角/全角括号，适合不同排版风格</li>
+                    <li><strong>字转注音：</strong>将中文文本转换为带声调的拼音文本，支持多种输出格式和括号组合</li>
+                    <li><strong>简繁转换：</strong>一键将简体中文转换为繁体中文，或反向转换，满足不同出版需求</li>
+                    <li><strong>精细参数控制：</strong>拼音字号、偏移量、缩放、对齐、间距、溢出处理等参数均可自由调整</li>
+                </ul>
+            </section>
+
+            <section class="doc-section" id="interface">
+                <h2>主界面介绍</h2>
+                <p>插件启动后，InDesign 右侧会出现 YinDesign 面板。面板分为左右两栏：左侧为操作区域，右侧为拼音参数设置区域。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_tools_tab.png" alt="YinDesign 主界面全貌">
+                    <figcaption>图 1：YinDesign 主界面全貌</figcaption>
+                </div>
+
+                <h3>左侧面板：操作区</h3>
+                <h4>字符样式</h4>
+                <p>选择或创建用于拼音注音的字符样式。点击 "+" 按钮可新建样式，"保存到样式"按钮将当前参数保存到所选样式中。勾选"联动字符样式"后，修改面板参数会自动同步更新字符样式。</p>
+
+                <h4>注音范围</h4>
+                <p>提供三种注音范围选择：</p>
+                <table>
+                    <tr><th>选项</th><th>说明</th></tr>
+                    <tr><td><strong>选择</strong></td><td>仅对当前选中的文字或文本框添加拼音</td></tr>
+                    <tr><td><strong>文本串接</strong></td><td>对整个文本串接（Story）中的文字添加拼音</td></tr>
+                    <tr><td><strong>页面范围</strong></td><td>对指定页面范围内的文字添加拼音，可输入页码如 "1-157"</td></tr>
+                </table>
+                <p>选择"页面范围"时，还可通过"过滤"下拉菜单按字符样式筛选，只对特定样式的文字添加拼音。</p>
+
+                <h4>自定拼音预设</h4>
+                <p>保存、新建或删除拼音参数预设方案。例如可以为"标题"和"正文"分别保存不同的拼音样式方案，一键切换使用。</p>
+
+                <h4>操作按钮</h4>
+                <table>
+                    <tr><th>按钮</th><th>功能</th></tr>
+                    <tr><td><strong>添加拼音</strong></td><td>主功能按钮，根据当前设置批量添加拼音注音</td></tr>
+                    <tr><td><strong>清除拼音</strong></td><td>移除选中文字的所有拼音注音</td></tr>
+                    <tr><td><strong>读取参数</strong></td><td>从选中文字的拼音中读取当前参数设置</td></tr>
+                    <tr><td><strong>应用参数</strong></td><td>将当前面板参数应用到已有拼音上</td></tr>
+                    <tr><td><strong>手动注音</strong></td><td>打开批量手动注音对话框，逐一为每个字设置拼音</td></tr>
+                    <tr><td><strong>字转注音</strong></td><td>打开字转注音工具，将中文转换为拼音文本</td></tr>
+                    <tr><td><strong>多音字检查</strong></td><td>检查选中文字中的多音字，逐一确认正确读音</td></tr>
+                    <tr><td><strong>简转繁 / 繁转简</strong></td><td>简体中文与繁体中文互相转换</td></tr>
+                </table>
+
+                <h3>右侧面板：参数设置</h3>
+                <h4>拼音设置</h4>
+                <p>设置拼音的字体和字样（如 Times New Roman Regular）。建议使用与正文协调的西文字体。</p>
+
+                <h4>格式设置</h4>
+                <table>
+                    <tr><th>参数</th><th>说明</th><th>建议值</th></tr>
+                    <tr><td>字号</td><td>拼音文字的大小</td><td>正文的 50%-70%，如 6-12pt</td></tr>
+                    <tr><td>X 偏移</td><td>拼音水平偏移量</td><td>通常为 0</td></tr>
+                    <tr><td>Y 偏移</td><td>拼音垂直偏移量</td><td>正值远离文字，负值靠近文字</td></tr>
+                    <tr><td>水平缩放</td><td>拼音文字的水平缩放比例</td><td>100%</td></tr>
+                    <tr><td>垂直缩放</td><td>拼音文字的垂直缩放比例</td><td>100%</td></tr>
+                    <tr><td>对齐</td><td>拼音与文字的对齐方式</td><td>居中</td></tr>
+                    <tr><td>类型</td><td>逐字注音或分组注音</td><td>逐字注音</td></tr>
+                    <tr><td>间距</td><td>拼音超出文字时的间距调整方式</td><td>两侧均匀</td></tr>
+                    <tr><td>超出</td><td>拼音超出父字符的处理方式</td><td>一字</td></tr>
+                </table>
+
+                <h4>括号包裹</h4>
+                <p>在拼音前后添加自定义括号符号。输入左括号和右括号字符后，点击"插入"即可为选中文字的拼音添加括号，点击"清除"则移除括号。</p>
+                <div class="warning"><strong>注意：</strong>在竖排文本中使用全角括号（如【】）可能导致拼音竖向排列。建议勾选"自动使用半角括号"，插件会自动将全角括号转换为对应的半角括号。</div>
+
+                <h4>拼音颜色</h4>
+                <p>设置拼音文字的颜色。可以从预设颜色列表中选择，也可以点击"添加颜色"自定义 CMYK 颜色值。</p>
+            </section>
+
+            <section class="doc-section" id="activation">
+                <h2>安装与激活</h2>
+                <h3>安装方法</h3>
+                <ol class="step-list">
+                    <li>将 <code>YinDesign 副墨V26.0.jsx</code> 文件复制到 InDesign 的脚本文件夹中。路径通常为：<br><code>~/Library/Application Support/Adobe/InDesign/Version xx.0/Scripts/Scripts Panel/</code></li>
+                    <li>打开 InDesign，选择菜单 <strong>窗口 > 实用程序 > 脚本</strong>（Window &gt; Utilities &gt; Scripts）</li>
+                    <li>在脚本面板中找到 YinDesign 脚本，双击运行</li>
+                </ol>
+
+                <h3>激活流程</h3>
+                <p>首次运行插件时，会弹出激活对话框。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_main_1.png" alt="激活对话框">
+                    <figcaption>图 2：激活对话框</figcaption>
+                </div>
+                <ol class="step-list">
+                    <li>在"订阅码"输入框中输入获得的订阅码</li>
+                    <li>点击"激活"按钮完成激活</li>
+                </ol>
+                <div class="tip"><strong>提示：</strong>点击"关于 YinDesign 音嘚赞"按钮可查看当前订阅状态和剩余天数。如需更换设备，先在"关于"对话框中点击"解绑此设备"，然后在新设备上重新激活。</div>
+            </section>
+
+            <section class="doc-section" id="add-pinyin">
+                <h2>添加拼音</h2>
+                <h3>基本操作</h3>
+                <ol class="step-list">
+                    <li>在 InDesign 中选中需要添加拼音的中文文字（或选择注音范围为"文本串接"/"页面范围"）</li>
+                    <li>在右侧面板中设置拼音参数：字体、字号、偏移量等</li>
+                    <li>如需括号，在"括号包裹"区域输入左右括号字符</li>
+                    <li>点击左侧的<strong>"添加拼音"</strong>按钮</li>
+                </ol>
+                <div class="tip"><strong>提示：</strong>添加拼音后，可通过 Cmd+Z（Mac）撤销操作。每次"添加拼音"操作只产生一条撤销记录，方便回退。</div>
+
+                <h3>竖排文本效果</h3>
+                <p>YinDesign 同样支持竖排文本的拼音注音，拼音会自动沿文字右侧排列。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_vertical_new.png" alt="竖排文本中的拼音注音效果">
+                    <figcaption>图 3：竖排文本中的拼音注音效果</figcaption>
+                </div>
+            </section>
+
+            <section class="doc-section" id="manual">
+                <h2>手动注音</h2>
+                <p>当自动拼音不准确时（如人名、地名、古文用字），可以使用"手动注音"功能逐一修改。</p>
+                <h3>批量手动注音</h3>
+                <p>点击"手动注音"按钮后，弹出批量手动注音对话框。对话框以表格形式列出选中文字的每个汉字及其拼音。直接在"拼音"列中编辑即可。支持两种输入方式：</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_pinyin_convert.png" alt="批量手动注音对话框">
+                    <figcaption>图 4：批量手动注音对话框</figcaption>
+                </div>
+                <ul>
+                    <li><strong>数字声调：</strong>输入带数字声调的拼音（如 <code>ni3</code>），插件自动转换为带声调符号的拼音（nǐ）</li>
+                    <li><strong>直接粘贴：</strong>直接粘贴带声调符号的拼音（如 cóng）</li>
+                </ul>
+                <p>编辑完成后点击"应用"按钮，所有修改将一次性应用到文档中。</p>
+
+                <h3>单字拼音编辑</h3>
+                <p>在批量手动注音对话框中双击某个汉字的拼音单元格，会弹出单字编辑对话框。修改后点击"确定"保存。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_char_count.png" alt="单字拼音编辑对话框">
+                    <figcaption>图 5：单字拼音编辑对话框</figcaption>
+                </div>
+            </section>
+
+            <section class="doc-section" id="polyphone">
+                <h2>多音字检查</h2>
+                <p>中文中许多汉字有多种读音（多音字）。插件可以自动检测多音字并让用户选择正确的读音。</p>
+                <ol class="step-list">
+                    <li>选中包含多音字的文本</li>
+                    <li>点击<strong>"多音字检查"</strong>按钮</li>
+                    <li>插件逐个检测多音字，弹出选择对话框</li>
+                </ol>
+                <p>对话框中显示当前汉字的所有可能读音，以及当前已设置的拼音。点击正确的读音按钮即可确认。如果不确定，可点击"跳过此字"暂时跳过，或点击"取消全部"终止检查。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_polyphone.png" alt="多音字选择对话框">
+                    <figcaption>图 6：多音字选择对话框</figcaption>
+                </div>
+            </section>
+
+            <section class="doc-section" id="convert">
+                <h2>字转注音</h2>
+                <p>字转注音工具可以将中文文本转换为纯拼音文本，支持多种输出格式。适用于需要导出拼音对照、制作拼音练习材料等场景。</p>
+                <h3>从选区文本转换</h3>
+                <p>选中文字后点击"字转注音"，选择"从选区文本转换"模式。右侧的输出选项可以自由组合：</p>
+                <table>
+                    <tr><th>选项</th><th>说明</th></tr>
+                    <tr><td>空格分隔</td><td>拼音之间用空格分隔</td></tr>
+                    <tr><td>换行</td><td>每个拼音后换行</td></tr>
+                    <tr><td>保留声调</td><td>保留声调符号（ā á ǎ à）</td></tr>
+                    <tr><td>附带汉字</td><td>在拼音后附带原汉字</td></tr>
+                    <tr><td>去掉标点</td><td>去除文本中的标点符号</td></tr>
+                    <tr><td>拼音在前</td><td>拼音显示在汉字前面</td></tr>
+                    <tr><td>字与拼音换行</td><td>汉字和拼音分行显示</td></tr>
+                </table>
+                <p>还可以设置括号符号（如 <code>{</code> 和 <code>}</code>），拼音将被括号包裹。预览区域实时显示输出效果。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_pinyin_convert_manual.png" alt="字转注音 - 选区转换模式">
+                    <figcaption>图 7：字转注音 - 选区转换模式</figcaption>
+                </div>
+
+                <h3>手动输入拼音</h3>
+                <p>切换到"手动输入拼音"模式后，可直接输入带数字声调的拼音文本。输入如 <code>yin1de5zan4</code> 的文本，插件自动转换为 <code>yīndezán</code>。点击"复制到剪贴板"可复制结果，点击"直接替换文本"可将选中的中文替换为拼音。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_stroke_count.png" alt="字转注音 - 手动输入模式">
+                    <figcaption>图 8：字转注音 - 手动输入模式</figcaption>
+                </div>
+            </section>
+
+            <section class="doc-section" id="bracket">
+                <h2>括号包裹</h2>
+                <p>括号包裹功能为已有的拼音添加自定义括号符号，常用于教材排版中区分拼音和正文。</p>
+                <ol class="step-list">
+                    <li>选中已添加拼音的文字</li>
+                    <li>在"括号包裹"区域输入左括号和右括号字符（如 <code>[</code> 和 <code>]</code>）</li>
+                    <li>点击"插入"按钮</li>
+                </ol>
+                <p>支持任意符号作为括号，包括但不限于：</p>
+                <table>
+                    <tr><th>类型</th><th>示例</th></tr>
+                    <tr><td>方括号</td><td>[ ] 【】 ［］</td></tr>
+                    <tr><td>圆括号</td><td>( ) （）</td></tr>
+                    <tr><td>花括号</td><td>{ } ｛｝</td></tr>
+                    <tr><td>尖括号</td><td>&lt; &gt; 《》 〈〉</td></tr>
+                    <tr><td>引号</td><td>" " ' ' 「」 『』</td></tr>
+                    <tr><td>其他符号</td><td>/ \ | ~ - = + * # @ 等</td></tr>
+                </table>
+                <p>点击"清除"按钮可移除拼音中的括号。清除功能支持完整括号对（如 <code>[test]</code>）和单侧括号（如 <code>/test</code>）。</p>
+                <div class="warning"><strong>注意：</strong>竖排文本中使用全角括号（如【】）可能导致拼音竖向排列。建议勾选"自动使用半角括号"选项，插件会自动将全角括号转换为对应的半角括号（如 []）。</div>
+            </section>
+
+            <section class="doc-section" id="style">
+                <h2>字符样式管理</h2>
+                <h3>新建字符样式</h3>
+                <p>点击字符样式区域的 "+" 按钮，弹出新建样式对话框。输入样式名称，选择基于的父样式，点击"确定"即可创建。创建后可通过"保存到样式"按钮将当前拼音参数保存到该样式中。</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_font_dialog.png" alt="新建字符样式对话框">
+                    <figcaption>图 9：新建字符样式对话框</figcaption>
+                </div>
+                <h3>联动字符样式</h3>
+                <p>勾选"联动字符样式"后，修改面板中的拼音参数会自动同步更新到关联的字符样式中。这样修改参数后无需手动"保存到样式"。</p>
+            </section>
+
+            <section class="doc-section" id="preset">
+                <h2>预设方案管理</h2>
+                <p>预设方案用于保存不同的拼音参数组合，方便在不同排版场景间快速切换。</p>
+                <ol class="step-list">
+                    <li>调整好拼音参数（字体、字号、偏移量、颜色等）</li>
+                    <li>点击"新建"按钮，输入方案名称（如"标题拼音"、"正文拼音"）</li>
+                    <li>点击"保存"按钮保存当前参数到该方案</li>
+                    <li>下次使用时，从下拉菜单选择对应方案即可快速恢复参数</li>
+                </ol>
+                <div class="figure">
+                    <img src="images/manual/screenshot_tone_dialog.png" alt="新建预设方案对话框">
+                    <figcaption>图 10：新建预设方案对话框</figcaption>
+                </div>
+            </section>
+
+            <section class="doc-section" id="st">
+                <h2>简繁转换</h2>
+                <p>插件提供简体中文与繁体中文的互相转换功能。</p>
+                <ul>
+                    <li><strong>简转繁：</strong>将选中的简体中文转换为繁体中文</li>
+                    <li><strong>繁转简：</strong>将选中的繁体中文转换为简体中文</li>
+                </ul>
+                <p>转换范围同样支持"选择"、"文本串接"和"页面范围"三种模式，由左侧的注音范围设置决定。</p>
+            </section>
+
+            <section class="doc-section" id="about">
+                <h2>关于与更新</h2>
+                <p>点击"关于 YinDesign 音嘚赞"按钮打开关于对话框。关于对话框显示当前版本号、订阅状态和剩余天数。提供以下功能：</p>
+                <div class="figure">
+                    <img src="images/manual/screenshot_main_2.png" alt="关于对话框">
+                    <figcaption>图 11：关于对话框</figcaption>
+                </div>
+                <table>
+                    <tr><th>按钮</th><th>功能</th></tr>
+                    <tr><td>解绑此设备</td><td>解除当前设备的绑定，以便在其他设备上激活</td></tr>
+                    <tr><td>官网：YinDesign.vip</td><td>访问官方网站获取最新信息和购买订阅</td></tr>
+                    <tr><td>微信：YinDesign-Help</td><td>添加微信客服获取技术支持</td></tr>
+                    <tr><td>检查更新</td><td>检查是否有新版本可用</td></tr>
+                </table>
+            </section>
+
+            <section class="doc-section" id="faq">
+                <h2>常见问题</h2>
+                <h4>Q: YinDesign 音嘚赞支持哪些 InDesign 版本？</h4>
+                <p>A: 支持 macOS 平台上的 Adobe InDesign CC 及以上版本。</p>
+
+                <h4>Q: 插件如何处理多音字？</h4>
+                <p>A: 插件内置智能多音字识别系统，根据上下文语境自动选择正确读音，并支持人工校对确认。</p>
+
+                <h4>Q: 支持繁简转换吗？</h4>
+                <p>A: 支持。内置 1100+ 繁简字对照表，经 OpenCC 国家标准校对，可一键完成简繁互转。</p>
+
+                <h4>Q: 有哪些订阅方案？</h4>
+                <p>A: 提供三种订阅方案：启明版（¥49/月）、长庚版（¥199/年）、太白版（¥399/3年），所有方案功能完全一致。</p>
+
+                <h4>Q: 可以在多台电脑上使用吗？</h4>
+                <p>A: 同一时间只能在一台设备上激活使用。如需更换设备，在"关于"对话框中点击"解绑此设备"，然后在新设备上重新激活即可。</p>
+
+                <h4>Q: 订阅过期后数据会丢失吗？</h4>
+                <p>A: 不会。订阅过期后，已添加的拼音注音不会消失，只是无法使用插件功能进行新增或修改操作。</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:inherit;">
+                        <img src="images/logo-yindesign.png" alt="YinDesign" class="brand-logo">
+                        <span class="brand-text"><span class="brand-yd">YinDesign</span> <span class="brand-name">音嘚赞</span></span>
+                    </a>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html#features">功能介绍</a>
+                    <a href="index.html#pricing">订阅方案</a>
+                    <a href="tutorial.html">使用教程</a>
+                    <a href="tutorial.html#faq">常见问题</a>
+                </div>
+                <div class="footer-contact">
+                    <p>客服微信：YinDesign-Help</p>
+                    <p>官网：www.yindesign.vip</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024-2026 YinDesign. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="回到顶部">↑</a>
+
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // 回到顶部按钮显示/隐藏
+        var backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // 目录锚点平滑滚动
+        document.querySelectorAll('.toc a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    var offset = 80;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // 页面加载时从 URL hash 自动定位到对应章节
+        (function() {
+            var hash = window.location.hash;
+            if (hash) {
+                setTimeout(function() {
+                    var target = document.querySelector(hash);
+                    if (target) {
+                        var offset = 80;
+                        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                }, 300);
+            }
+        })();
+    </script>
+</body>
+</html>
