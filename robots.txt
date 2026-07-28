@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Sogou spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+Sitemap: https://yindesign.vip/sitemap.xml
