@@ -206,16 +206,18 @@
             <section class="doc-section" id="activation">
                 <h2>安装与激活</h2>
                 <h3>安装方法</h3>
-                <p>推荐使用 DMG 安装包安装，自动完成所有步骤：</p>
+                <p>推荐使用 DMG 安装包安装：</p>
                 <ol class="step-list">
                     <li>从官网 <a href="index.html#download">下载页面</a> 获取 <code>YinDesign音嘚赞_Installer.dmg</code> 安装包</li>
-                    <li>双击打开 DMG 文件，将 <code>YinDesign音嘚赞.app</code> 拖到「应用程序」文件夹</li>
-                    <li>运行应用，安装器会自动检测 InDesign 并安装插件脚本</li>
+                    <li>双击打开 DMG 文件，双击其中的 <code>YinDesign音嘚赞.app</code> 运行安装器</li>
+                    <li>安装器自动检测 InDesign 并将安装脚本复制到脚本面板</li>
+                    <li>打开 Adobe InDesign，选择菜单 <strong>窗口 → 实用程序 → 脚本</strong>（Window &gt; Utilities &gt; Scripts）</li>
+                    <li>在脚本面板中双击 <code>YinDesign音嘚赞_安装器</code> 运行</li>
                 </ol>
-                <div class="tip"><strong>提示：</strong>如需手动安装，可将 <code>YinDesign 副墨V26.0.jsx</code> 文件复制到 InDesign 脚本文件夹：<code>~/Library/Application Support/Adobe/InDesign/Version xx.0/Scripts/Scripts Panel/</code></div>
+                <div class="tip"><strong>提示：</strong>如需手动安装，右键点击 DMG 中的 <code>YinDesign音嘚赞.app</code> → 选择「显示包内容」→ 进入 <code>Contents/Resources/</code>，将 <code>YinDesign音嘚赞_安装器.jsx</code> 复制到 InDesign 脚本面板目录：<code>~/Library/Preferences/Adobe InDesign/Version xx.0-[后缀]/[语言]/Scripts/Scripts Panel/</code></div>
 
                 <h3>激活流程</h3>
-                <p>首次运行插件时，会弹出激活对话框。</p>
+                <p>运行安装器后，会弹出激活对话框。输入订阅码完成激活后，安装器会自动下载完整版插件并启动。</p>
                 <div class="figure">
                     <img src="images/manual/screenshot_main_1.png" alt="激活对话框">
                     <figcaption>图 2：激活对话框</figcaption>
