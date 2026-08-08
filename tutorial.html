@@ -209,11 +209,12 @@
                 <p>推荐使用 DMG 安装包安装：</p>
                 <ol class="step-list">
                     <li>从官网 <a href="index.html#download">下载页面</a> 获取 <code>YinDesign音嘚赞_Installer.dmg</code> 安装包</li>
-                    <li>双击打开 DMG 文件，双击其中的 <code>YinDesign音嘚赞.app</code> 运行安装器</li>
+                    <li>双击打开 DMG 文件，<strong>右键点击</strong>其中的 <code>YinDesign音嘚赞.app</code> → 选择「打开」（首次运行会提示「Apple 无法验证」，再次点击「打开」即可）</li>
                     <li>安装器自动检测 InDesign 并将安装脚本复制到脚本面板</li>
                     <li>打开 Adobe InDesign，选择菜单 <strong>窗口 → 实用程序 → 脚本</strong>（Window &gt; Utilities &gt; Scripts）</li>
                     <li>在脚本面板中双击 <code>YinDesign音嘚赞_安装器</code> 运行</li>
                 </ol>
+                <div class="tip"><strong>关于安全提示：</strong>由于本插件未经 Apple 公证签名，双击打开时会弹出「无法验证」警告。请使用<strong>右键 → 打开</strong>的方式运行，系统会显示「打开」按钮，点击即可。这是 macOS 对非 App Store 应用的标准安全流程，插件本身不含任何恶意代码。</div>
                 <div class="tip"><strong>提示：</strong>如需手动安装，右键点击 DMG 中的 <code>YinDesign音嘚赞.app</code> → 选择「显示包内容」→ 进入 <code>Contents/Resources/</code>，将 <code>YinDesign音嘚赞_安装器.jsx</code> 复制到 InDesign 脚本面板目录：<code>~/Library/Preferences/Adobe InDesign/Version xx.0-[后缀]/[语言]/Scripts/Scripts Panel/</code></div>
 
                 <h3>激活流程</h3>
@@ -409,6 +410,9 @@
 
                 <h4>Q: 订阅过期后数据会丢失吗？</h4>
                 <p>A: 不会。订阅过期后，已添加的拼音注音不会消失，只是无法使用插件功能进行新增或修改操作。</p>
+
+                <h4>Q: 打开安装器时提示「Apple 无法验证」怎么办？</h4>
+                <p>A: 这是 macOS 对非 App Store 应用的标准安全检查。请<strong>右键点击</strong> <code>YinDesign音嘚赞.app</code> → 选择「打开」，弹出的对话框中会出现「打开」按钮，点击即可运行。也可以前往<strong>系统设置 → 隐私与安全性</strong>，点击「仍要打开」。插件不含任何恶意代码，可放心使用。</p>
             </section>
         </div>
     </main>
