@@ -214,23 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========================================
-    // 订阅按钮点击事件
-    // ========================================
-    document.querySelectorAll('.pricing-card .btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const planName = this.closest('.pricing-card').querySelector('.pricing-name').textContent;
-            alert('即将跳转到订阅页面：' + planName + '\n\n此功能正在开发中，敬请期待！');
-        });
-    });
-    
-    // 下载按钮点击事件
-    const downloadBtn = document.querySelector('.download .btn-primary');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('下载功能正在开发中，敬请期待！\n\n当前版本：副墨v26.0\n支持平台：macOS + InDesign');
-        });
-    }
+    // 订阅按钮和下载按钮现在使用原生链接跳转，无需 JS 拦截
+    // 订阅按钮 href="buy.html"，下载按钮 href="YinDesign音嘚赞_Installer.dmg"
 });
