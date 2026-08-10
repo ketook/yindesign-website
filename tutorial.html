@@ -209,21 +209,34 @@
                 <p>推荐使用 DMG 安装包安装：</p>
                 <ol class="step-list">
                     <li>从官网 <a href="index.html#download">下载页面</a> 获取 <code>YinDesign音嘚赞_Installer.dmg</code> 安装包</li>
-                    <li>双击打开 DMG 文件，<strong>右键点击</strong>其中的 <code>YinDesign音嘚赞.app</code> → 选择「打开」（首次运行会提示「Apple 无法验证」，再次点击「打开」即可）</li>
+                    <li>双击打开 DMG 文件，双击其中的 <code>YinDesign音嘚赞.app</code> 运行</li>
+                    <li>此时会弹出安全警告（「Apple 无法验证…是否包含恶意软件」），点击<strong>「完成」</strong>关闭弹窗</li>
+                    <li>打开<strong>系统设置</strong> → <strong>隐私与安全性</strong> → 向下滚动找到<strong>安全性</strong>区域</li>
+                    <li>看到「已阻止 "YinDesign音嘚赞.app" 以保护 Mac」的提示后，点击<strong>「仍要打开」</strong>按钮</li>
+                    <li>再次双击 <code>YinDesign音嘚赞.app</code>，此时弹窗中会出现「打开」按钮，点击即可运行</li>
                     <li>安装器自动检测 InDesign 并将安装脚本复制到脚本面板</li>
                     <li>打开 Adobe InDesign，选择菜单 <strong>窗口 → 实用程序 → 脚本</strong>（Window &gt; Utilities &gt; Scripts）</li>
                     <li>在脚本面板中双击 <code>YinDesign音嘚赞_安装器</code> 运行</li>
                 </ol>
-                <div class="tip"><strong>关于安全提示：</strong>由于本插件未经 Apple 公证签名，双击打开时会弹出「无法验证」警告。请使用<strong>右键 → 打开</strong>的方式运行，系统会显示「打开」按钮，点击即可。这是 macOS 对非 App Store 应用的标准安全流程，插件本身不含任何恶意代码。</div>
+                <div class="warning"><strong>安全提示解除流程：</strong>由于本插件未经 Apple 公证签名，首次运行会被 macOS Gatekeeper 拦截。完整解除步骤如下：
+                    <ol style="margin-top: 0.5rem;">
+                        <li>双击 <code>YinDesign音嘚赞.app</code>，弹出「Apple 无法验证…」警告，点击<strong>「完成」</strong>（切勿点击「移到废纸篓」）</li>
+                        <li>进入<strong>系统设置 → 隐私与安全性</strong>，在<strong>安全性</strong>区域找到「已阻止 "YinDesign音嘚赞.app"」提示</li>
+                        <li>点击<strong>「仍要打开」</strong>按钮（可能需要输入密码确认）</li>
+                        <li>再次双击 app，弹窗中会多出「打开」按钮，点击即可正常运行</li>
+                    </ol>
+                    这是 macOS 对非 App Store 应用的标准安全流程，插件本身不含任何恶意代码，可放心使用。
+                </div>
                 <div class="tip"><strong>提示：</strong>如需手动安装，右键点击 DMG 中的 <code>YinDesign音嘚赞.app</code> → 选择「显示包内容」→ 进入 <code>Contents/Resources/</code>，将 <code>YinDesign音嘚赞_安装器.jsx</code> 复制到 InDesign 脚本面板目录。</div>
-                <div class="tip"><strong>脚本面板路径示例：</strong>不同版本的 InDesign 路径不同，请根据您安装的版本查找对应目录：
+                <div class="tip"><strong>脚本面板路径示例：</strong>不同版本的 InDesign 路径不同，请将路径中的 <code>[你的用户名]</code> 替换为您的 macOS 登录用户名（可在系统设置 → 用户与群组中查看）：
                     <table style="margin-top: 0.8rem;">
                         <tr><th>InDesign 版本</th><th>脚本面板路径</th></tr>
-                        <tr><td>InDesign 2025</td><td><code>~/Library/Preferences/Adobe InDesign/Version 20.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
-                        <tr><td>InDesign 2024</td><td><code>~/Library/Preferences/Adobe InDesign/Version 19.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
-                        <tr><td>InDesign CC 2017</td><td><code>~/Library/Preferences/Adobe InDesign/Version 12.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
+                        <tr><td>InDesign 2025</td><td><code>/Users/[你的用户名]/Library/Preferences/Adobe InDesign/Version 20.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
+                        <tr><td>InDesign 2024</td><td><code>/Users/[你的用户名]/Library/Preferences/Adobe InDesign/Version 19.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
+                        <tr><td>InDesign CC 2017</td><td><code>/Users/[你的用户名]/Library/Preferences/Adobe InDesign/Version 12.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
                     </table>
-                    其中 <code>~</code> 代表用户主目录，<code>-J</code> 后缀表示日文区域版（中文版也可能显示此后缀）。<code>zh_CN</code> 为简体中文语言包目录。如果找不到 <code>zh_CN</code>，请尝试 <code>en_US</code> 等其他语言目录。
+                    例如，您的用户名为 <code>baogaoting</code>，则 InDesign 2025 的路径为：<code>/Users/baogaoting/Library/Preferences/Adobe InDesign/Version 20.0-J/zh_CN/Scripts/Scripts Panel/</code><br>
+                    <code>-J</code> 后缀表示日文区域版（中文版也可能显示此后缀）。<code>zh_CN</code> 为简体中文语言包目录。如果找不到 <code>zh_CN</code>，请尝试 <code>en_US</code> 等其他语言目录。
                 </div>
 
                 <h3>激活流程</h3>
@@ -403,7 +416,7 @@
             <section class="doc-section" id="faq">
                 <h2>常见问题</h2>
                 <h4>Q: YinDesign 音嘚赞支持哪些 InDesign 版本？</h4>
-                <p>A: 支持 macOS 平台上的 Adobe InDesign CC 及以上版本（InDesign CC 2017 ~ InDesign 2025+）。插件安装在用户级脚本面板目录中，路径格式为 <code>~/Library/Preferences/Adobe InDesign/Version XX.0-J/zh_CN/Scripts/Scripts Panel/</code>，不同版本的 InDesign 对应不同的内部版本号（如 2025 → 20.0，2024 → 19.0，CC 2017 → 12.0）。</p>
+                <p>A: 支持 macOS 平台上的 Adobe InDesign CC 及以上版本（InDesign CC 2017 ~ InDesign 2025+）。插件安装在用户级脚本面板目录中，路径格式为 <code>/Users/[你的用户名]/Library/Preferences/Adobe InDesign/Version XX.0-J/zh_CN/Scripts/Scripts Panel/</code>，不同版本的 InDesign 对应不同的内部版本号（如 2025 → 20.0，2024 → 19.0，CC 2017 → 12.0）。其中 <code>[你的用户名]</code> 为 macOS 登录用户名。</p>
 
                 <h4>Q: 插件如何处理多音字？</h4>
                 <p>A: 插件内置智能多音字识别系统，根据上下文语境自动选择正确读音，并支持人工校对确认。</p>
@@ -421,7 +434,14 @@
                 <p>A: 不会。订阅过期后，已添加的拼音注音不会消失，只是无法使用插件功能进行新增或修改操作。</p>
 
                 <h4>Q: 打开安装器时提示「Apple 无法验证」怎么办？</h4>
-                <p>A: 这是 macOS 对非 App Store 应用的标准安全检查。请<strong>右键点击</strong> <code>YinDesign音嘚赞.app</code> → 选择「打开」，弹出的对话框中会出现「打开」按钮，点击即可运行。也可以前往<strong>系统设置 → 隐私与安全性</strong>，点击「仍要打开」。插件不含任何恶意代码，可放心使用。</p>
+                <p>A: 这是 macOS 对非 App Store 应用的标准安全检查。完整解除步骤：</p>
+                <ol style="margin-bottom: 1rem;">
+                    <li>双击 <code>YinDesign音嘚赞.app</code>，弹出「Apple 无法验证…」警告，点击<strong>「完成」</strong>（切勿点击「移到废纸篓」）</li>
+                    <li>打开<strong>系统设置 → 隐私与安全性</strong>，向下滚动找到<strong>安全性</strong>区域</li>
+                    <li>看到「已阻止 "YinDesign音嘚赞.app"」提示后，点击<strong>「仍要打开」</strong>按钮</li>
+                    <li>再次双击 app，弹窗中会出现「打开」按钮，点击即可运行</li>
+                </ol>
+                <p>插件不含任何恶意代码，可放心使用。</p>
             </section>
         </div>
     </main>
