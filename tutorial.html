@@ -215,7 +215,16 @@
                     <li>在脚本面板中双击 <code>YinDesign音嘚赞_安装器</code> 运行</li>
                 </ol>
                 <div class="tip"><strong>关于安全提示：</strong>由于本插件未经 Apple 公证签名，双击打开时会弹出「无法验证」警告。请使用<strong>右键 → 打开</strong>的方式运行，系统会显示「打开」按钮，点击即可。这是 macOS 对非 App Store 应用的标准安全流程，插件本身不含任何恶意代码。</div>
-                <div class="tip"><strong>提示：</strong>如需手动安装，右键点击 DMG 中的 <code>YinDesign音嘚赞.app</code> → 选择「显示包内容」→ 进入 <code>Contents/Resources/</code>，将 <code>YinDesign音嘚赞_安装器.jsx</code> 复制到 InDesign 脚本面板目录：<code>~/Library/Preferences/Adobe InDesign/Version xx.0-[后缀]/[语言]/Scripts/Scripts Panel/</code></div>
+                <div class="tip"><strong>提示：</strong>如需手动安装，右键点击 DMG 中的 <code>YinDesign音嘚赞.app</code> → 选择「显示包内容」→ 进入 <code>Contents/Resources/</code>，将 <code>YinDesign音嘚赞_安装器.jsx</code> 复制到 InDesign 脚本面板目录。</div>
+                <div class="tip"><strong>脚本面板路径示例：</strong>不同版本的 InDesign 路径不同，请根据您安装的版本查找对应目录：
+                    <table style="margin-top: 0.8rem;">
+                        <tr><th>InDesign 版本</th><th>脚本面板路径</th></tr>
+                        <tr><td>InDesign 2025</td><td><code>~/Library/Preferences/Adobe InDesign/Version 20.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
+                        <tr><td>InDesign 2024</td><td><code>~/Library/Preferences/Adobe InDesign/Version 19.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
+                        <tr><td>InDesign CC 2017</td><td><code>~/Library/Preferences/Adobe InDesign/Version 12.0-J/zh_CN/Scripts/Scripts Panel/</code></td></tr>
+                    </table>
+                    其中 <code>~</code> 代表用户主目录，<code>-J</code> 后缀表示日文区域版（中文版也可能显示此后缀）。<code>zh_CN</code> 为简体中文语言包目录。如果找不到 <code>zh_CN</code>，请尝试 <code>en_US</code> 等其他语言目录。
+                </div>
 
                 <h3>激活流程</h3>
                 <p>运行安装器后，会弹出激活对话框。输入订阅码完成激活后，安装器会自动下载完整版插件并启动。</p>
@@ -394,7 +403,7 @@
             <section class="doc-section" id="faq">
                 <h2>常见问题</h2>
                 <h4>Q: YinDesign 音嘚赞支持哪些 InDesign 版本？</h4>
-                <p>A: 支持 macOS 平台上的 Adobe InDesign CC 及以上版本。</p>
+                <p>A: 支持 macOS 平台上的 Adobe InDesign CC 及以上版本（InDesign CC 2017 ~ InDesign 2025+）。插件安装在用户级脚本面板目录中，路径格式为 <code>~/Library/Preferences/Adobe InDesign/Version XX.0-J/zh_CN/Scripts/Scripts Panel/</code>，不同版本的 InDesign 对应不同的内部版本号（如 2025 → 20.0，2024 → 19.0，CC 2017 → 12.0）。</p>
 
                 <h4>Q: 插件如何处理多音字？</h4>
                 <p>A: 插件内置智能多音字识别系统，根据上下文语境自动选择正确读音，并支持人工校对确认。</p>
